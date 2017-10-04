@@ -3,8 +3,8 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +18,11 @@ import com.netflix.discovery.EurekaClient;
 @RestController
 public class ConsumerApplication {
 
+	@Bean
+	public RestTemplate restTemp(){
+		return new RestTemplate();
+	}
+	
 	@Autowired
 	private EurekaClient ec;
 	
